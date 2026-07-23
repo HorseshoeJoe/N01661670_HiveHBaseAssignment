@@ -1,0 +1,9 @@
+promotion_id,product_id,promotion_name,start_date,end_date,discount_rate
+PR001,P001,Dairy Essentials,2026-05-01,2026-05-14,0.1
+PR002,P006,Fresh Produce Event,2026-05-08,2026-05-21,0.15
+PR003,P011,Summer Grill,2026-06-01,2026-06-14,0.2
+PR004,P016,Bakery Value,2026-06-10,2026-06-23,0.15
+PR005,P025,Coffee Promotion,2026-06-15,2026-06-30,0.2
+PR006,P031,Frozen Week,2026-07-01,2026-07-14,0.25
+PR007,P036,Household Savings,2026-07-05,2026-07-18,0.2
+PR008,P041,Personal Care Event,2026-07-10,2026-07-23,0.15

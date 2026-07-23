@@ -1,0 +1,13 @@
+store_id,store_city,province,store_region
+ST-TOR-001,Toronto,Ontario,Central
+ST-TOR-002,Toronto,Ontario,Central
+ST-SCA-001,Scarborough,Ontario,Central
+ST-MIS-001,Mississauga,Ontario,Central
+ST-BRA-001,Brampton,Ontario,Central
+ST-HAM-001,Hamilton,Ontario,Central
+ST-KIT-001,Kitchener,Ontario,Central
+ST-LON-001,London,Ontario,Central
+ST-OTT-001,Ottawa,Ontario,Eastern
+ST-OTT-002,Ottawa,Ontario,Eastern
+ST-CAL-001,Calgary,Alberta,Western
+ST-EDM-001,Edmonton,Alberta,Western

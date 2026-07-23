@@ -1,0 +1,46 @@
+product_id,product_name,category,base_unit_price
+P001,2% Milk 4L,Dairy,12.15
+P002,Large Eggs 12,Dairy,2.2
+P003,Cheddar Cheese 400g,Dairy,6.25
+P004,Greek Yogurt 750g,Dairy,5.41
+P005,Butter 454g,Dairy,13.72
+P006,Bananas,Produce,12.75
+P007,Apples 3lb,Produce,16.24
+P008,Avocados 5pk,Produce,3.2
+P009,Tomatoes,Produce,8.63
+P010,Potatoes 10lb,Produce,2.27
+P011,Chicken Breast,Meat,5.33
+P012,Ground Beef,Meat,9.98
+P013,Atlantic Salmon,Meat,2.22
+P014,Pork Chops,Meat,5.01
+P015,Bacon 500g,Meat,12.32
+P016,Whole Wheat Bread,Bakery,10.62
+P017,Bagels 6pk,Bakery,5.36
+P018,Croissants 6pk,Bakery,11.34
+P019,Muffins 6pk,Bakery,14.9
+P020,Tortillas 10pk,Bakery,1.9
+P021,Pasta 900g,Grocery,14.84
+P022,Tomato Sauce,Grocery,13.1
+P023,Rice 2kg,Grocery,7.3
+P024,Cereal 500g,Grocery,4.31
+P025,Coffee 900g,Grocery,17.3
+P026,Olive Oil 1L,Grocery,7.24
+P027,Peanut Butter 1kg,Grocery,3.29
+P028,Canned Beans,Grocery,3.36
+P029,Orange Juice 2.5L,Grocery,15.52
+P030,Sparkling Water 12pk,Grocery,11.57
+P031,Frozen Pizza,Frozen,14.87
+P032,Frozen Berries 1kg,Frozen,13.61
+P033,Ice Cream 1.5L,Frozen,10.48
+P034,Frozen Vegetables 750g,Frozen,17.55
+P035,French Fries 1kg,Frozen,7.92
+P036,Laundry Detergent,Household,10.73
+P037,Paper Towels 6pk,Household,15.23
+P038,Dish Soap,Household,11.81
+P039,Garbage Bags 40pk,Household,15.75
+P040,Toilet Paper 12pk,Household,11.14
+P041,Shampoo,Personal Care,13.2
+P042,Toothpaste,Personal Care,2.53
+P043,Body Wash,Personal Care,5.48
+P044,Hand Soap,Personal Care,6.48
+P045,Deodorant,Personal Care,3.08
