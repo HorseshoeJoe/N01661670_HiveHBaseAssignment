@@ -1,0 +1,57 @@
+# HBase Operational Validation Commands — retail_events
+# Part VII: HBase Validation, and used again in Part XIX's investigation
+
+# ----------------------------------------------------------------------
+# 1. Sample scan — confirm data loaded correctly
+# ----------------------------------------------------------------------
+scan 'retail_events', {LIMIT => 10}
+
+# ----------------------------------------------------------------------
+# 2. Retrieve a specific event by exact row key
+#    Business purpose: direct lookup of a single event (e.g. customer
+#    service inquiry, audit, or record verification)
+# ----------------------------------------------------------------------
+get 'retail_events', 'ST-BRA-001#98215146838999#EVT-0003'
+
+# ----------------------------------------------------------------------
+# 3. Investigate events for a selected store
+#    Business purpose: store-level operational drill-down. This scan is
+#    efficient specifically because store_id leads the row key — all of
+#    a store's events are physically contiguous in the table.
+#    Used directly in the Part XIX Calgary investigation.
+# ----------------------------------------------------------------------
+scan 'retail_events', {STARTROW => 'ST-CAL-001', LIMIT => 10}
+
+# Restrict to specific column families only (used to double-check that
+# all four families were correctly populated during ingestion):
+scan 'retail_events', {LIMIT => 5, COLUMNS => ['store', 'transaction']}
+
+# ----------------------------------------------------------------------
+# 4. Investigate events for a selected transaction
+#    Business purpose: pull full operational detail for a transaction
+#    identified as interesting via Hive/Python analysis. Requires a
+#    scan with a filter, since transaction_id is not part of the row
+#    key (row key is store-oriented, not transaction-oriented).
+# ----------------------------------------------------------------------
+scan 'retail_events', { FILTER => "SingleColumnValueFilter('transaction','transaction_id',=,'binary:TXN-0012708')" }
+
+# ----------------------------------------------------------------------
+# Part IX — Integration Validation test commands (mandatory proof)
+# Insert a record directly into HBase only (never via Hive), to prove
+# Hive reads live from HBase rather than an independent copy.
+# ----------------------------------------------------------------------
+put 'retail_events', 'ST-TEST-999#00000000000001#EVT-TESTPROOF', 'transaction:transaction_id', 'TXN-TEST-999'
+put 'retail_events', 'ST-TEST-999#00000000000001#EVT-TESTPROOF', 'store:store_id', 'ST-TEST-999'
+put 'retail_events', 'ST-TEST-999#00000000000001#EVT-TESTPROOF', 'product:product_id', 'P-TEST'
+put 'retail_events', 'ST-TEST-999#00000000000001#EVT-TESTPROOF', 'sales:final_price', '999.99'
+
+# Confirm it landed in HBase
+get 'retail_events', 'ST-TEST-999#00000000000001#EVT-TESTPROOF'
+
+# (After confirming in Hive per hive/analytics.hql, clean up the test
+#  record so it doesn't contaminate real analytics)
+deleteall 'retail_events', 'ST-TEST-999#00000000000001#EVT-TESTPROOF'
+
+# Confirm removal
+get 'retail_events', 'ST-TEST-999#00000000000001#EVT-TESTPROOF'
+# Expect: 0 row(s)

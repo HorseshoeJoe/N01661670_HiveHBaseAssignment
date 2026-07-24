@@ -1,0 +1,23 @@
+# HBase Table Creation — retail_events
+# Run these in HBase shell (hbase shell)
+
+# 1. Create the table with four column families
+create 'retail_events', 'transaction', 'product', 'store', 'sales'
+
+# 2. Verify the table exists
+list
+
+# 3. Inspect the table structure
+describe 'retail_events'
+
+# ----------------------------------------------------------------------
+# Column family reference (for documentation purposes)
+# ----------------------------------------------------------------------
+# transaction : transaction_id, event_timestamp, payment_type, loyalty_flag
+# product     : product_id, product_name, category
+# store       : store_id, city, province, region
+# sales       : quantity, unit_price, discount_amount, final_price,
+#               promotion_flag, promotion_id
+#
+# Row key format: store_id#reverse_timestamp#event_id
+# Example: ST-BRA-001#98215146838999#EVT-0003
